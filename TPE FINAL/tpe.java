@@ -32,7 +32,6 @@ public class Atributo {
         this.nombre = nombre;
         this.valor = valor;
     }
-
     public String getNombre() {
         return nombre;
     }
@@ -46,20 +45,22 @@ public class Atributo {
 public class Juego{
     private Jugador j1; 
     private Jugador j2; 
- 
-    public Juego(Jugador j1, Jugador j2){
-             
-     
-    }
+    private Mazo mazo; 
+
+ public Juego(Jugador j1, Jugador j2, Mazo mazo){
+         this.j1=j1;    
+         this.j2=j2;
+         this.mazo=mazo;   
+ }
      
     public void repartirCartas(){ 
-    
+        j1.getMazoJugador.add(
      
      
     
     } 
  
-
+    
  
  
 
@@ -71,7 +72,7 @@ public class Juego{
  
  
 public class Jugador{
-    private Carta cartas<>; 
+    private Carta mazoJugador<>; 
     private String nombre;
 
  

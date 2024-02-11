@@ -4,14 +4,21 @@
 public class Mazo{
     ArrayList <Carta> cartas;
  
-    public Mazo crearMazo(){ 
+    
+     public Mazo crearMazo(){ 
      Mazo mazo=new Mazo();
-    
-    return mazo;     
-    
-    } }
+   return mazo;     
+        } 
+    public void addCartas(Carta carta){
+        cartas.add(carta);
+    }
 
-public Carta{ 
+    public ArrayList<Carta> getCartas() {
+        return new ArrayList<>(carta);
+
+}
+ //
+public class Carta{ 
     private String personaje; 
     private ArrayList <Atributo> atributos;     
     
@@ -41,6 +48,7 @@ public class Atributo {
     }
 }
  
+
 //CLASE JUEGO 
 public class Juego{
     private Jugador j1; 
@@ -50,11 +58,12 @@ public class Juego{
  public Juego(Jugador j1, Jugador j2, Mazo mazo){
          this.j1=j1;    
          this.j2=j2;
-         this.mazo=mazo;   
+         this.mazo=crearMazo();   
  }
      
     public void repartirCartas(){ 
-        j1.getMazoJugador.add(
+        for(i=0; )
+         j1.getMazoJugador.add(
      
      
     
@@ -75,7 +84,12 @@ public class Jugador{
     private Carta mazoJugador<>; 
     private String nombre;
 
+    public Jugador(String nombre){
+     mazoJugador=new ArrayList<>;
+     this.nombre=nombre;
+    } 
  
+   public void llenarMazo(){ 
  
 
 } 

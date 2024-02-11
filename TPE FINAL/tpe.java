@@ -81,7 +81,7 @@ public class Juego{
  
  
 public class Jugador{
-    private Carta mazoJugador<>; 
+    private ArrayList<Carta> mazoJugador; 
     private String nombre;
 
     public Jugador(String nombre){
@@ -89,8 +89,8 @@ public class Jugador{
      this.nombre=nombre;
     } 
  
-   public void llenarMazo(){ 
- 
+   public void llenarMazo(Carta c){ 
+      mazo.add(carta)
 
 } 
  

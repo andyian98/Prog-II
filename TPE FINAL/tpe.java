@@ -53,7 +53,8 @@ public class Atributo {
 public class Juego{
     private Jugador j1; 
     private Jugador j2; 
-    private Mazo mazo; 
+    private ArrayList<Carta> mazo;
+    //private Mazo mazo; 
 
  public Juego(Jugador j1, Jugador j2, Mazo mazo){
          this.j1=j1;    
@@ -61,9 +62,10 @@ public class Juego{
          this.mazo=crearMazo();   
  }
      
-    public void repartirCartas(){ 
+
+ public void repartirCartas(){ 
         for(i=0; )
-         j1.getMazoJugador.add(
+         j1.llenarMazo(
      
      
     
@@ -90,7 +92,7 @@ public class Jugador{
     } 
  
    public void llenarMazo(Carta c){ 
-      mazo.add(carta)
+      mazo.add(carta)}
 
 } 
  

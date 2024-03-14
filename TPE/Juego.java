@@ -1,0 +1,165 @@
+package TPE;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import TPE.Atributo;
+import TPE.Carta;
+import TPE.Mazo;
+import TPE.Estrategias.Estrategia;
+import TPE.Pocimas.Pocima;
+
+//CLASE MAZO
+
+}
+
+//
+// CLASE ATRIBUTO
+// CLASE JUEGO
+public class Juego {
+    private Jugador j1;
+    private Jugador j2;
+    private Mazo mazo;
+    private int cantRondasJugadas = 0;
+    private int rondasMax = 22;
+    private Jugador primerJugador = j1;
+    private Jugador segundo = j2;
+    private ArrayList<Pocima> pocimas;
+
+    public Juego(Jugador j1, Jugador j2, Mazo mazo, int cantRondasJugadas, int rondasMax, Jugador primerJugador,
+            Jugador segundo) {
+        this.j1 = j1;
+        this.j2 = j2;
+        this.mazo = crearMazo();
+        this.cantRondasJugadas = cantRondasJugadas;
+        this.rondasMax = rondasMax;
+        this.primerJugador = primerJugador;
+        this.segundo = segundo;
+
+    }
+
+    public Mazo crearMazo() {
+        this.mazo = new Mazo();
+        return mazo;
+    }
+
+    public void barajar() {
+        Collections.shuffle(mazo.getCartas());
+    }
+
+    public void jugar(){
+        if(mazo.verificar()){
+            while(j1.getCantidadCartas()>0 && j2.getCantidadCartas()>0 && cantRondasJugadas<rondasMax)
+                Atributo atElegido = new Atributo();
+                atElegido=seleccionarAtributo(primerJugador);
+                compararCartas(atElegido);
+                
+                cantRondasJugadas+=1;
+            }
+    
+
+    }
+
+    public void repartirCartas() {
+        while (mazo.getCantidadCartas() > 0) {
+            j1.recibirCartas(mazo.obtenerCarta());
+            if (mazo.getCantidadCartas() > 0) {
+                j2.recibirCartas(mazo.obtenerCarta());
+            }
+        }
+    }
+
+    public void compararCartas(Atributo atElegido) {
+        int valorAtrJ1, valorAtrJ2;
+        valorAtrJ1 = atElegido.getValor();
+        Carta cartaActual;
+        ArrayList<Carta> cartasJ2 = new ArrayList<>();
+        cartasJ2.addAll(segundo.getMazo());
+        for (Carta c : cartasJ2) {
+            valorAtrJ2 = c.getValorAtributo(atElegido.getNombre());
+            cartaActual = c;
+        }
+        System.out.println();
+        determinar(valorAtrJ1, valorAtrJ2, cartaActual);
+    }
+
+    private Jugador determinar(int valorAtrJ1, int valorAtrJ2, Carta cartaActual) {
+        if (valorAtrJ1 > valorAtrJ2) {
+            primerJugador = j1;
+            
+            
+        } else if (valorAtrJ1 < valorAtrJ2) {
+            primerJugador = j2;
+            
+            
+        } else {
+            j1.agregarCartasAlFinal(j.);    //TO DO: INTENTAR QUE SE PUEDA ACCEDER A LAS CARTAS DE AMBOS, QUIZAS DEBA REPLANTEAR seleccionarAtributos() y comparar() o hacer akgun metodo intermedio que traiga la carta
+            j2.agregarCartasAlFinal(j.);    //TO DO: INTENTAR QUE SE PUEDA ACCEDER A LAS CARTAS DE AMBOS, QUIZAS DEBA REPLANTEAR seleccionarAtributos() y comparar() o hacer akgun metodo intermedio que traiga la carta
+        }
+    }
+}
+
+public class Jugador {
+    private ArrayList<Carta> mazoJugador;
+    private String nombre;
+    private Estrategia estrategia;
+
+    public Jugador(String nombre, Estrategia estrategia) {
+        mazoJugador = new ArrayList<>();
+        this.nombre = nombre;
+        this.estrategia = estrategia;
+    }
+
+    public void agregarCartasAlFinal(Carta cartaActual) {
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre(String nombre) {
+        return nombre;
+    }
+
+    public ArrayList<Carta> getMazo() {
+        ArrayList<Carta> aux = new ArrayList<>();
+        aux.addAll(mazoJugador);
+        return aux;
+    }
+
+    public void recibirCartas(Carta nuevaCarta) {
+        mazoJugador.add(nuevaCarta);
+    }
+
+    public Carta tomarCarta(){
+        Carta carta = mazoJugador<0>;        
+        return carta;
+    }
+
+    public ArrayList<Atributo> getAtributosCarta(){        
+        ArrayList<Atributo> atri = new ArrayList<>();
+        Carta carta = tomarCarta()
+        atri.addAll(carta.getAtributos())
+        return atri;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        public class Juego {
+            public static void main(String[] args) {
+                // Crear instancias de las estrategias
+                Estrategia timbero = new Timbero();
+                Estrategia ambicioso = new Ambicioso();
+                Estrategia obstinado = new Obstinado("Fuerza");
+
+                // Crear jugadores con diferentes estrategias
+                Jugador jugador1 = new Jugador("Juan", timbero);
+                Jugador jugador2 = new Jugador("María", ambicioso);
+                Jugador jugador3 = new Jugador("Pedro", obstinado);
+            }
+        }
+
+    }
+
+}
